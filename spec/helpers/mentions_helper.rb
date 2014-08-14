@@ -11,9 +11,7 @@ module Helpers
 	end
 
 	def change_mentions_from_twitter_cassette
-		mentions = YAML::load_file(File.join(__dir__, '../vcr_cassettes/mentions_from_twitter.yml'))
-		mentions["http_interactions"][1]["response"]["body"]["string"] = stub_mentions
-		File.open(File.join(__dir__, '../vcr_cassettes/mentions_from_twitter.yml'), 'w') {|f| f.write mentions.to_yaml }
+		change_mentions_for('mentions_from_twitter', 1)
 	end
 
 	def stub_mentions
@@ -29,9 +27,14 @@ module Helpers
 	end
 
 	def change_mentions_for_exists_user_and_mentions_from_twitter_cassette
-		mentions = YAML::load_file(File.join(__dir__, '../vcr_cassettes/exists_user_and_mentions_from_twitter.yml'))
-		mentions["http_interactions"][2]["response"]["body"]["string"] = stub_mentions
-		File.open(File.join(__dir__, '../vcr_cassettes/exists_user_and_mentions_from_twitter.yml'), 'w') {|f| f.write mentions.to_yaml }
+		change_mentions_for('exists_user_and_mentions_from_twitter', 2)
+	end
+
+	def change_mentions_for(cassette_name, request_number)
+		cassette_file = File.join(__dir__, "../vcr_cassettes/#{cassette_name}.yml")
+		mentions = YAML::load_file(cassette_file)
+		mentions["http_interactions"][request_number]["response"]["body"]["string"] = stub_mentions
+		File.open(cassette_file, 'w') {|f| f.write mentions.to_yaml }
 	end
 
 end

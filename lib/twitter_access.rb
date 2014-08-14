@@ -10,6 +10,10 @@ class TwitterAccess
 		@client = create_client
 	end
 
+	def exists_user?(name)
+		@client.user?(name)
+	end
+
 	def get_mentions_to_user(name)
 		@client.search("@#{name}", result_type: 'recent')
 	end

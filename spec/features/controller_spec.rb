@@ -5,7 +5,6 @@ describe 'controller' do
 	context 'the user name exists' do
 		it 'print mentions of user name' do
 			initial_cassette_for_exists_user_and_mentions_from_twitter
-			change_mentions_for_exists_user_and_mentions_from_twitter_cassette
 			VCR.use_cassette('exists_user_and_mentions_from_twitter') do
 				allow(STDIN).to receive(:gets) { Helpers::EXPECTED_EXISTING_USER_NAME }
 

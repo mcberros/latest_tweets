@@ -8,9 +8,6 @@ module Helpers
 			twitter_service = TwitterAccess.new
 			mentions = twitter_service.get_mentions_to_user(EXPECTED_EXISTING_USER_NAME)
 		end
-	end
-
-	def change_mentions_from_twitter_cassette
 		change_mentions_for('mentions_from_twitter', 1)
 	end
 
@@ -24,11 +21,10 @@ module Helpers
 
 			TwitterController.new.latest_mentions_to_user
 		end
-	end
-
-	def change_mentions_for_exists_user_and_mentions_from_twitter_cassette
 		change_mentions_for('exists_user_and_mentions_from_twitter', 2)
 	end
+
+  private
 
 	def change_mentions_for(cassette_name, request_number)
 		cassette_file = File.join(__dir__, "../vcr_cassettes/#{cassette_name}.yml")

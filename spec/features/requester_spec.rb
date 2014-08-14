@@ -4,10 +4,10 @@ require 'requester'
 describe 'requester' do
 
 	it 'ask the twitter user name' do
-		allow(STDIN).to receive(:gets) {'mcberros'}
+		allow(STDIN).to receive(:gets) { Helpers::EXPECTED_EXISTING_USER_NAME }
 		requester = Requester.new
 
-		expect(requester.get_twitter_name).to eql('mcberros')
+		expect(requester.get_twitter_name).to eql( Helpers::EXPECTED_EXISTING_USER_NAME )
 	end
 
 end

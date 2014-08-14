@@ -8,7 +8,7 @@ describe 'twitter_access' do
 		change_mentions_from_twitter_cassette
 		VCR.use_cassette('mentions_from_twitter') do
 			twitter_service = TwitterAccess.new
-			mentions = twitter_service.get_mentions_to_user(Helpers::EXPECTED_EXISTING_USER_NAME)
+			mentions = twitter_service.get_mentions_to_user( Helpers::EXPECTED_EXISTING_USER_NAME )
 			expect(mentions.count).to eql(2)
 			expect(mentions.first.full_text).to match(/Pregunta a/)
 		end

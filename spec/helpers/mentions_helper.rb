@@ -1,10 +1,12 @@
 require 'yaml'
 
 module Helpers
+	EXPECTED_EXISTING_USER_NAME = 'mcberros'
+
   def initial_cassette_for_mentions
 		VCR.use_cassette('mentions_from_twitter') do
 			twitter_service = TwitterAccess.new
-			mentions = twitter_service.get_mentions_to_user('mcberros')
+			mentions = twitter_service.get_mentions_to_user(EXPECTED_EXISTING_USER_NAME)
 		end
 	end
 

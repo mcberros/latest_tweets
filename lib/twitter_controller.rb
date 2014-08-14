@@ -1,6 +1,6 @@
-require 'requester'
-require 'twitter_access'
-require 'printer'
+require_relative 'requester'
+require_relative 'twitter_access'
+require_relative 'printer'
 
 class TwitterController
 	def initialize

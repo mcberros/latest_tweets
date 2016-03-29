@@ -11,6 +11,7 @@ The application tests if the user exists, if not writes a message warning about 
 * To test the application write the command `rspec`
 
 * To run the application
+
 	* (For UNIX) Make the file latest_tweets.rb executable:
 		`chmod u+x latest_tweets.rb`
 	* Write the command

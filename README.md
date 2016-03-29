@@ -4,7 +4,7 @@ This is a Ruby command line application that asks for a Twitter user name and sh
 The application tests if the user exists, if not writes a message warning about it.
 
 ## Usage
-* Obtain the app_key and the app_secret for using the twitter api. For this you should go to https://apps.twitter.com/ and create an application. You don't need a callback URL. For the website you can write any valid URL. We won't use it.
+* Obtain the app_key and the app_secret for using the twitter api. For this you should visit https://apps.twitter.com/ and create an application. You don't need a callback URL. For the website you can write any valid URL. We won't use it.
 
 * Copy the file config/twitter_config_empty.yml as config/twitter_config.yml and write your app_key and app_secret
 

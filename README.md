@@ -1,5 +1,4 @@
 # latest_tweets
-
 This is a Ruby command line application that asks for a Twitter user name and shows the latest tweets mentioning that user.
 The application tests if the user exists, if not writes a message warning about it.
 
